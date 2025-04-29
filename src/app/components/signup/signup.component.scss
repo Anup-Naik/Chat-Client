@@ -1,3 +1,15 @@
 .signup {
   height: var(--main-height);
+  background-color: var(--background);
+  color: var(--on-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & .container{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
