@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #0d1b2a;
+  --primary: #1b263b;
+  --on-primary: #778da9;
+  --secondary: #415a77;
+  --on-secondary: #e0e1dd;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--background);
+  font-size: 1.6rem;
+  height: 150vh;
+}
