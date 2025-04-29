@@ -5,13 +5,14 @@
 }
 
 :root {
-  --unused-area: #333;
+  --unused-area: #222;
   --background: #0d1b2a;
   --primary: #1b263b;
   --on-primary: #778da9;
   --secondary: #415a77;
   --on-secondary: #e0e1dd;
   --max-width:900px;
+  --main-height:calc(100vh - 105px);
 }
 
 html {

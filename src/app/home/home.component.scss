@@ -1,4 +1,4 @@
 .home {
-  height: calc(100vh - 105px);
+  height: var(--main-height);
   background: var(--background) url(/chat.svg) no-repeat center center;
 }
