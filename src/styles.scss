@@ -5,11 +5,13 @@
 }
 
 :root {
+  --unused-area: #333;
   --background: #0d1b2a;
   --primary: #1b263b;
   --on-primary: #778da9;
   --secondary: #415a77;
   --on-secondary: #e0e1dd;
+  --max-width:900px;
 }
 
 html {
@@ -17,7 +19,12 @@ html {
 }
 
 body {
-  background-color: var(--background);
+  background-color: var(--unused-area);
   font-size: 1.6rem;
-  height: 150vh;
+  height: 100vh;
+  width: var(--max-width);
+  margin: 0 auto;
+  border-left: 5px solid var(--primary);
+  border-right: 5px solid var(--primary);
+  // overflow: hidden;
 }
