@@ -1,4 +1,93 @@
 .login {
   height: var(--main-height);
   background-color: var(--background);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  & .container {
+    width: min(calc(100% - 10%), 400px);
+    padding: 75px 55px 55px 75px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // border-bottom-left-radius: 100px;
+    // border-top-right-radius: 100px;
+    // border-top-left-radius: 100px;
+    border-radius: 50%;
+    // transform: skewX(30deg);
+    // transform: skewY(5deg);
+    background-color: var(--primary);
+
+    & .login-form {
+      position: relative;
+
+      & .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        font-size: 1.8rem;
+
+        & .form-label {
+          color: var(--on-primary);
+          font-size: inherit;
+
+          &:has(+ .form-control:focus) {
+            color: var(--on-secondary);
+          }
+        }
+
+        & .form-control {
+          padding: 5px;
+          width: 25rem;
+          font-size: 1.6rem;
+          border-radius: 5px;
+          margin-top: 5px;
+
+          &:focus {
+            outline: none;
+          }
+
+          &:invalid {
+            border-bottom: 5px groove salmon;
+          }
+        }
+      }
+
+      & button {
+        position: absolute;
+        bottom: -238px;
+        right: -200px;
+        padding: 150px;
+        clip-path: polygon(
+          50% 30px,
+          38% 40%,
+          60% 54%,
+          28% 48%,
+          0 38%,
+          20% 33%,
+          35% 26%,
+          40% 22%,
+          45% 17%,
+        );
+        background: var(--secondary);
+        background-blend-mode: color;
+        color: var(--on-secondary);
+        font-size: inherit;
+        border: none;
+        transition: 0.2s;
+
+        &:hover {
+          background-color: var(--on-secondary);
+          color: var(--secondary);
+          cursor: pointer;
+        }
+
+        &:active {
+          transform: translate(1px, 2px);
+        }
+      }
+    }
+  }
 }
