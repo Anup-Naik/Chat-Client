@@ -1,4 +1,67 @@
 .home {
   height: var(--main-height);
-  background: var(--background) url(/chat.svg) no-repeat center center;
+  font-size: inherit;
+  background: var(--background) url(/chat.svg) no-repeat center bottom/cover;
+  background-blend-mode: overlay;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--on-primary);
+
+  & .container {
+    width: max-content;
+    margin: 0 auto;
+    padding: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    & .head {
+      font-size: 3.2rem;
+      letter-spacing: 1px;
+      width: max-content;
+      margin-bottom: 20px;
+      text-align: center;
+      background: linear-gradient(
+        to right,
+        var(--windy-start),
+        var(--windy-end)
+      );
+      background-clip: text;
+      color: transparent;
+    }
+
+    & .actions {
+      // margin: 0 auto;
+      font-size: 1.8rem;
+
+      & .start {
+        display: inline-block;
+        text-decoration: none;
+        background-color: var(--secondary);
+        color: var(--on-secondary);
+        padding: 10px 15px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        transition: 0.3s;
+
+        &:hover {
+          background-color: var(--primary);
+          // color: var(--on-primary);
+        }
+      }
+      & .subtext a {
+        padding: 2px;
+        text-decoration: none;
+        color: var(--on-secondary);
+        transition: 0.3s;
+
+        &:hover {
+          text-decoration: underline;
+          color: var(--windy-end);
+        }
+      }
+    }
+  }
 }

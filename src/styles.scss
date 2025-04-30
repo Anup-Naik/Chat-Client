@@ -11,6 +11,11 @@
   --on-primary: #778da9;
   --secondary: #415a77;
   --on-secondary: #e0e1dd;
+  --windy-start: #acb6e5;
+  --windy-end: #86fde8;
+  --lawrencium-start: #0f0c29;
+  --lawrencium-mid: #302b63;
+  --lawrencium-end: #24243e;
   --max-width: 900px;
   --main-height: calc(100vh - 105px);
 }
@@ -20,7 +25,12 @@ html {
 }
 
 body {
-  background-color: var(--unused-area);
+  background: linear-gradient(
+    to right,
+    var(--lawrencium-start),
+    var(--lawrencium-mid),
+    var(--lawrencium-end)
+  );
   font-size: 1.6rem;
   max-height: 100vh;
   max-width: var(--max-width);
