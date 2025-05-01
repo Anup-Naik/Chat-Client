@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   & .container {
     width: min(calc(100% - 10%), 400px);
     padding: 75px 55px 55px 75px;
@@ -12,43 +13,50 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // border-bottom-left-radius: 100px;
-    // border-top-right-radius: 100px;
-    // border-top-left-radius: 100px;
     border-radius: 50%;
-    // transform: skewX(30deg);
-    // transform: skewY(5deg);
     background-color: var(--primary);
 
     & .login-form {
       position: relative;
 
-      & .form-group {
+      & .form-control {
         display: flex;
         flex-direction: column;
         margin-bottom: 15px;
         font-size: 1.8rem;
 
-        & .form-label {
+        & label {
           color: var(--on-primary);
+          padding: 0 10px;
           font-size: inherit;
+          transform: translateY(2rem);
+          transition-duration: 0.5s;
 
-          &:has(+ .form-control:focus) {
+          &:has(+ input:focus),
+          &:has(+ input:user-valid),
+          &:has(+ input:user-invalid) {
             color: var(--on-secondary);
+            transform: translateY(0rem);
           }
         }
 
-        & .form-control {
-          padding: 5px;
+        & input  {
+          padding: 5px 20px;
           width: 25rem;
           font-size: 1.6rem;
-          border-radius: 5px;
-          margin-top: 5px;
+          border-radius: 10px;
+          border: none;
+          background-color: transparent;
+          color: var(--on-secondary);
+          border-bottom: 3px solid var(--on-primary);
+          transition-duration: 1s;
 
-          &:focus {
+          &:focus,
+          &:valid {
             outline: none;
+            border-bottom: 3px solid var(--on-secondary);
           }
-
+          
           &:invalid {
             border-bottom: 5px groove salmon;
           }
@@ -69,18 +77,20 @@
           20% 33%,
           35% 26%,
           40% 22%,
-          45% 17%,
+          45% 17%
         );
-        background: var(--secondary);
+        background: linear-gradient(
+          to left top,
+          var(--lawrencium-mid),
+          var(--windy-end),
+          var(--windy-start)
+        );
         background-blend-mode: color;
-        color: var(--on-secondary);
-        font-size: inherit;
         border: none;
         transition: 0.2s;
 
         &:hover {
           background-color: var(--on-secondary);
-          color: var(--secondary);
           cursor: pointer;
         }
 

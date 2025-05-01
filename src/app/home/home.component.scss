@@ -45,12 +45,28 @@
         border-radius: 5px;
         margin-bottom: 5px;
         transition: 0.3s;
+        opacity: 0.7;
 
         &:hover {
-          background-color: var(--primary);
+          // background-color: var(--primary);
           // color: var(--on-primary);
+          background: linear-gradient(
+              to right bottom,
+              var(--windy-start),
+              var(--windy-end)
+            ),
+            linear-gradient(
+              to top left,
+              var(--lawrencium-start),
+              var(--lawrencium-mid),
+              var(--lawrencium-end)
+            );
+            background-blend-mode: hard-light;
+            opacity: 1;
+          // color: var(--lawrencium-mid);
         }
       }
+
       & .subtext a {
         padding: 2px;
         text-decoration: none;
