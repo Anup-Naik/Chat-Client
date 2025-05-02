@@ -2,7 +2,7 @@
   <div class="container">
     <Span class="brand">HiChat</Span>
     <ul>
-      @if(isLoggedin()){
+      @if(appState.isLoggedin()){
       <li><app-user-nav></app-user-nav></li>
       <li><a (click)="logout()">Logout</a></li>
       }@else{

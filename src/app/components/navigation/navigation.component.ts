@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { UserNavComponent } from '../user-nav/user-nav.component';
+import { AppStateService } from '../../services/appstate.service';
 
 @Component({
   selector: 'app-navigation',
@@ -9,11 +10,10 @@ import { UserNavComponent } from '../user-nav/user-nav.component';
   styleUrl: './navigation.component.scss',
 })
 export class NavigationComponent {
-  isLoggedin = signal(true);
   router = inject(Router);
-
+  appState = inject(AppStateService);
   logout() {
-    this.isLoggedin.set(false);
-    this.router.navigate([""])
+    this.appState.isLoggedin.set(false);
+    this.router.navigate(['']);
   }
 }
