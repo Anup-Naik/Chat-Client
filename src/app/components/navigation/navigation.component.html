@@ -2,8 +2,17 @@
   <div class="container">
     <Span class="brand">HiChat</Span>
     <ul>
-      <li><a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a></li>
-      <li><a routerLink="/signup" routerLinkActive="active" ariaCurrentWhenActive="page">SignUp</a></li>
+      @if(isLoggedin()){
+      <li><app-user-nav></app-user-nav></li>
+      <li><a (click)="logout()">Logout</a></li>
+      }@else{
+      <li>
+        <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
+      </li>
+      <li>
+        <a routerLink="/signup" routerLinkActive="active" ariaCurrentWhenActive="page">SignUp</a>
+      </li>
+      }
     </ul>
   </div>
 </nav>

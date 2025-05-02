@@ -1,23 +1,44 @@
 .user-nav {
   display: flex;
-  padding: 10px;
-  margin-top: 1px;
-  background-color: var(--secondary);
-  width: calc(100vw - 25px);
-  justify-content: flex-end;
+  justify-content: space-between;
+
+  & .add-btn {
+    height: 30px;
+    width: 30px;
+    fill: var(--on-primary);
+  }
 
   & .search-container {
     display: flex;
+    position: relative;
 
-    & input{
+    & input {
       height: 30px;
+      padding: 5px 15px;
+      width: 0;
+      opacity: 0;
       border: none;
       border-radius: 15px;
+      background-color: var(--on-secondary);
+      transition: 0.3s linear;
+      
+      &.active{
+        width: 15rem;
+        opacity: 1;
+      }
+
+      &:focus {
+        outline: none;
+      }
     }
 
     & .search-btn {
+      position: absolute;
+      right: 2px;
+      bottom: 1px;
       width: 30px;
       height: 30px;
+      padding: 1px;
 
       & img {
         height: 100%;

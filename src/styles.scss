@@ -5,11 +5,10 @@
 }
 
 :root {
-  --unused-area: #333;
   --background: #0d1b2a;
   --primary: #1b263b;
-  --on-primary: #778da9;
-  --secondary: #415a77;
+  --on-primary: #94B4DD;
+  --secondary: #334962;
   --on-secondary: #e0e1dd;
   --windy-start: #acb6e5;
   --windy-end: #86fde8;
@@ -37,5 +36,7 @@ body {
   margin: 0 auto;
   border-left: 10px solid var(--primary);
   border-right: 10px solid var(--primary);
+  box-shadow: var(--lawrencium-start) 2px 15px 20px 5px;
   overflow: hidden;
+  border-radius: 15px;
 }
