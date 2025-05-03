@@ -6,8 +6,10 @@
     width: 30px;
     margin-left: 10px;
     fill: var(--on-primary);
+    transition: 0.3s;
 
     &:hover {
+      cursor: pointer;
       fill: var(--on-secondary);
     }
   }

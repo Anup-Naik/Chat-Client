@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { UserNavComponent } from '../user-nav/user-nav.component';
-import { AppStateService } from '../../services/appstate.service';
+import { AppStateService } from '../../services/AppState.service';
 
 @Component({
   selector: 'app-navigation',
