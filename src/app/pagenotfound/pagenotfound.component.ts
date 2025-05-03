@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, inject, OnInit } from '@angular/core';
+import { AppStateService } from '../services/AppState.service';
 
 @Component({
   selector: 'app-pagenotfound',
@@ -13,7 +14,10 @@ import { Component } from '@angular/core';
    height: var(--main-height);
    display:flex;
    justify-content:center;
-   background:url("/chatBg/ruins.jpg")no-repeat center center/cover, linear-gradient(to right bottom , var(--lawrencium-start),var(--lawrencium-mid),var(--lawrencium-end));
+   background-color:var(--lawrencium-end);
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-size: cover;
    background-blend-mode:overlay;
    align-items:center;
    & h1{
@@ -26,4 +30,12 @@ import { Component } from '@angular/core';
   }
   `,
 })
-export class PagenotfoundComponent {}
+export class PagenotfoundComponent implements OnInit {
+  elementRef = inject(ElementRef);
+  appState = inject(AppStateService);
+  ngOnInit(): void {
+    this.elementRef.nativeElement.querySelector(
+      '.notFound'
+    ).style.backgroundImage = this.appState.randImage();
+  }
+}

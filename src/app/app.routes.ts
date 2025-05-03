@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ChatComponent } from './components/dashboard/chat/chat.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { UserComponent } from './components/dashboard/user/user.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -13,7 +14,10 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    children: [{ path: 'chat', component: ChatComponent }],
+    children: [
+      { path: '', component: UserComponent },
+      { path: 'chat/:id', component: ChatComponent },
+    ],
   },
   { path: '**', component: PagenotfoundComponent },
 ];

@@ -1,0 +1,87 @@
+.user-nav {
+  height: 100%;
+  box-shadow: inset 3px 3px 8px 2px var(--overlay-background);
+  padding: 12px;
+  background-color: var(--opaque-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  & .brand  {
+    width: 35px;
+  }
+
+  & .container {
+    display: flex;
+    flex-direction: column-reverse;
+
+    & .search-container {
+      height: 35px;
+      width: 30px;
+      display: flex;
+      position: relative;
+      margin-bottom: 15px;
+
+      & input {
+        position: absolute;
+        font-size: 1.6rem;
+        height: 32px;
+        padding: 5px 15px;
+        padding-left: 30px;
+        width: 0;
+        opacity: 0;
+        border: none;
+        border-radius: 5px;
+        background-color: var(--light-color);
+        transition: 0.3s linear;
+
+        &.active {
+          width: 15rem;
+          opacity: 1;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      & .search-btn {
+        position: absolute;
+        margin: 0;
+        bottom: 3px;
+      }
+
+      & span {
+        height: 30px;
+        width: 30px;
+        fill: var(--on-primary);
+        transition: 0.3s linear;
+        margin-bottom: 15px;
+
+        & svg {
+          height: 100%;
+          fill: var(--on-primary);
+
+          &:hover {
+            cursor: pointer;
+            fill: var(--on-secondary);
+          }
+        }
+      }
+    }
+
+    & span {
+      height: 30px;
+      width: 30px;
+      fill: var(--on-primary);
+      transition: 0.3s;
+      margin-bottom: 15px;
+
+      &:hover {
+        cursor: pointer;
+        fill: var(--on-secondary);
+      }
+    }
+  }
+}

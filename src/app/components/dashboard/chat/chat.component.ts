@@ -1,7 +1,8 @@
-import { DatePipe } from '@angular/common';
+import { AsyncPipe, DatePipe } from '@angular/common';
 import { Component, ElementRef, inject, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AppStateService } from '../../../services/AppState.service';
+import { map, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-chat',
@@ -11,11 +12,19 @@ import { AppStateService } from '../../../services/AppState.service';
 })
 export class ChatComponent implements OnInit {
   router = inject(Router);
+  route = inject(ActivatedRoute);
   elementRef = inject(ElementRef);
   appState = inject(AppStateService);
+  userid!: string;
   optionsEl!: HTMLDivElement;
 
   ngOnInit() {
+    this.route.paramMap.pipe(
+      map((params) => {
+        this.userid = params.get('id') ?? 'NoID';
+        console.log(this.userid);
+      })
+    ).subscribe();
     this.optionsEl =
       this.elementRef.nativeElement.querySelector('.chat-actions');
     this.elementRef.nativeElement.querySelector(

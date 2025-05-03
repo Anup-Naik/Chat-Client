@@ -5,20 +5,24 @@
 }
 
 :root {
+  --brand-logo-start: #01d9ff;
+  --brand-logo-end: #f026f0;
   --background: #0d1b2a;
   --overlay-background: #0d1b2ae4;
   --primary: #1b263b;
   --opaque-primary: #1b263bd8;
-  --on-primary: #94B4DD;
+  --on-primary: #94b4dd;
   --secondary: #334962;
+  --opaque-secondary: #334962f3;
   --on-secondary: #e0e1dd;
+  --light-color: #caccc4df;
   --windy-start: #acb6e5;
   --windy-end: #86fde8;
   --lawrencium-start: #0f0c29;
   --lawrencium-mid: #302b63;
   --lawrencium-end: #24243e;
-  --scrollbar-color-thumb:steelblue;
-  --scrollbar-color-track:rgb(52, 30, 52);
+  --scrollbar-color-thumb: steelblue;
+  --scrollbar-color-track: rgb(52, 30, 52);
   --max-width: 900px;
   --main-height: calc(100vh - 105px);
 }

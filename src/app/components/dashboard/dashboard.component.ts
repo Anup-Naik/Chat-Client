@@ -4,7 +4,7 @@ import { ChatComponent } from './chat/chat.component';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [RouterOutlet, RouterLink, RouterLinkActive,ChatComponent],
+  imports: [RouterOutlet],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })

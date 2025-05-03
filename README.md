@@ -13,15 +13,10 @@ ng serve --open
 
 
 ## Routes
-
+BaseUrl &rightarrow; `http://localhost:4200`
 - `/` &rightarrow; Renders the Home Component.
-
 - `/signup` &rightarrow; Renders the SignUp Component.
-
 - `/login` &rightarrow; Renders the Login Component.
-
 - `/dashboard` &rightarrow; Renders the Dashboard Component.
-
 - `/dashboard/chat` &rightarrow; Renders the Chat Component Child of Dashboard.
-
 - `/**` &rightarrow; Renders the Pagenotfound Component.

@@ -3,7 +3,6 @@
     <Span class="brand">HiChat</Span>
     <ul>
       @if(appState.isLoggedin()){
-      <li><app-user-nav></app-user-nav></li>
       <li><a (click)="logout()">Logout</a></li>
       }@else{
       <li>
