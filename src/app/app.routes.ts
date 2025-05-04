@@ -6,6 +6,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ChatComponent } from './components/dashboard/chat/chat.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { UserComponent } from './components/dashboard/user/user.component';
+import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -14,6 +15,7 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [authGuard],
     children: [
       { path: '', component: UserComponent },
       { path: 'chat/:id', component: ChatComponent },

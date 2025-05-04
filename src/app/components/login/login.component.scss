@@ -1,6 +1,8 @@
 .login {
   height: var(--main-height);
+  background: url("/chat.svg") no-repeat center center/cover;
   background-color: var(--background);
+  background-blend-mode: overlay;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,17 +10,18 @@
 
   & .container {
     width: min(calc(100% - 10%), 400px);
-    padding: 75px 55px 55px 75px;
+    height: 40%;
+    padding: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
-    background-color: var(--primary);
+    border-radius: 100px 100px 5px;
+    background-color: var(--opaque-secondary);
+    position: relative;
 
     & .login-form {
-      position: relative;
-
+      padding-bottom: 10px;
       & .form-control {
         display: flex;
         flex-direction: column;
@@ -28,6 +31,7 @@
         & label {
           color: var(--on-primary);
           padding: 0 10px;
+          margin-left: 10px;
           font-size: inherit;
           transform: translateY(2rem);
           transition-duration: 0.5s;
@@ -38,10 +42,16 @@
             color: var(--on-secondary);
             transform: translateY(0rem);
           }
+          &:has(+ input:user-valid) {
+            color: var(--success);
+          }
+          &:has(+ input:is(:user-invalid, :autofill)) {
+            color: var(--error);
+          }
         }
 
-        & input  {
-          padding: 5px 20px;
+        & input {
+          padding: 10px 20px;
           width: 25rem;
           font-size: 1.6rem;
           border-radius: 10px;
@@ -54,47 +64,42 @@
           &:focus,
           &:valid {
             outline: none;
-            border-bottom: 3px solid var(--on-secondary);
+            border-bottom-color: var(--on-secondary);
           }
-          
-          &:invalid {
-            border-bottom: 5px groove salmon;
+
+          &:user-invalid {
+            border-bottom-color: salmon;
           }
         }
       }
 
       & button {
         position: absolute;
-        bottom: -238px;
-        right: -200px;
-        padding: 150px;
-        clip-path: polygon(
-          50% 10%,
-          38% 40%,
-          60% 54%,
-          28% 48%,
-          0% 38%,
-          20% 33%,
-          35% 26%,
-          40% 22%,
-          45% 17%
-        );
-        background: linear-gradient(
-          to left top,
-          var(--lawrencium-mid),
-          var(--windy-end),
-          var(--windy-start)
-        );
-        background-blend-mode: color;
-        border: none;
-        transition: 0.2s;
+        bottom: 10px;
+        right: 10px;
+        height: 50px;
+        width: 50px;
+        padding: 5px;
+        border: 2px solid var(--windy-start);
+        border-radius: 50%;
+        transition: 0.3s linear;
+        background-color: var(--opaque-primary);
 
-        &:hover {
-          background-color: var(--on-secondary);
-          cursor: pointer;
+        & img {
+          height: 100%;
+        }
+        &:disabled {
+          cursor: not-allowed;
         }
 
-        &:active {
+        &:hover:not(:disabled) {
+          background-color: var(--secondary);
+          cursor: pointer;
+          padding: 0;
+          transform: scale(1.3);
+        }
+
+        &:active:not(:disabled) {
           transform: translate(1px, 2px);
         }
       }

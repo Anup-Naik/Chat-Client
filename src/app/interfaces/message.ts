@@ -1,3 +1,5 @@
+import { User } from "./user";
+
 export interface Message {
   recipient: string;
   content: string;
@@ -11,9 +13,9 @@ export type MyServerResponse =
   | {
       status: 'success';
       data:
-        | any
         | {
             token: string;
-            data: any;
-          };
+            data: User;
+          }
+        | User;
     };

@@ -1,6 +1,8 @@
 .signup {
   height: var(--main-height);
+  background: url("/chat.svg") no-repeat center center/cover;
   background-color: var(--background);
+  background-blend-mode: overlay;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,33 +12,42 @@
     padding: 50px 75px;
     display: flex;
     flex-direction: column;
+    font-size: 2rem;
     justify-content: center;
     align-items: center;
     border-radius: 50px;
-    background-color: var(--primary);
+    background-color: var(--opaque-secondary);
     & .form-group {
       display: flex;
       flex-direction: column;
       margin-bottom: 15px;
-      font-size: 1.8rem;
       & .form-label {
         color: var(--on-primary);
-        font-size: inherit;
+        letter-spacing: 2px;
+        font-weight: 500;
         &:has(+ .form-control:focus) {
           color: var(--on-secondary);
+        }
+        &:has(+ .form-control:user-valid) {
+          color: var(--success);
+        }
+        &:has(+ .form-control:is(:user-invalid,:autofill)) {
+          color: var(--error);
         }
       }
       & .form-control {
         padding: 5px;
         width: 25rem;
         font-size: 1.6rem;
+        border: none;
+        background-color: var(--on-secondary);
         border-radius: 5px;
         margin-top: 5px;
         &:focus {
           outline: none;
         }
         &:user-invalid {
-          border-bottom: 5px groove salmon;
+          border-bottom: 5px solid salmon;
         }
       }
     }
@@ -46,7 +57,7 @@
       justify-content: space-evenly;
       & button {
         padding: 7px 15px;
-        background-color: var(--secondary);
+        background-color: var(--primary);
         border-radius: 5px;
         color: var(--on-secondary);
         font-size: inherit;

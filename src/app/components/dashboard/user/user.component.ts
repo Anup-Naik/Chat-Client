@@ -22,6 +22,6 @@ export class UserComponent implements OnInit {
   }
 
   openChat(id: string) {
-    this.router.navigate(['chat', id], { relativeTo: this.route });
+    this.router.navigate(['chat', this.user()?._id], { relativeTo: this.route });
   }
 }

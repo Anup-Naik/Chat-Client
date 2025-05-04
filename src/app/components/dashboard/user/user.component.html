@@ -3,12 +3,10 @@
   <div class="user-container">
     <header class="user-info">
       <span class="avatar"
-        ><img
-          [src]="user()?.avatar ?? '/avatar/01.png'"
-          alt="{{ user()?.username }}"
+        ><img [src]="user()?.avatar" [alt]="user()?.username"
       /></span>
       <h2 class="user-name">
-        {{ user()?.username?.toUpperCase() ?? "ANUP456456" }}
+        {{ user()?.username?.toUpperCase() }}
       </h2>
     </header>
 

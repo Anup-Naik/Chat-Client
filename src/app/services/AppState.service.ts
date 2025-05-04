@@ -25,9 +25,10 @@ export class AppStateService {
   constructor() {}
 
   setUser(userData: User) {
+    console.log(userData);
     this.user.set(userData);
   }
-  
+
   randImage() {
     const rand = randImageNo();
     return `url('/chatBg/${rand}.jpg')`;

@@ -1,16 +1,30 @@
 <section class="login">
   <div class="container">
-    <form class="login-form">
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-control">
         <label for="email"> Email </label>
-        <input type="email" id="email" name="email" />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          formControlName="email"
+          required
+          autocomplete="off"
+        />
       </div>
       <div class="form-control">
         <label for="password"> Password </label>
-        <input type="password" id="password" name="password" minlength="8" />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          minlength="8"
+          formControlName="password"
+          required
+        />
       </div>
 
-      <button type="submit"></button>
+      <button type="submit" [disabled]="!loginForm.valid"> <img src="/rocket.svg" alt="Login"></button>
     </form>
   </div>
 </section>

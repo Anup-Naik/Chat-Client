@@ -31,7 +31,7 @@ export class SignupComponent {
         email,
         password,
         confirmPassword,
-        avatar: '/avatar/01.png',
+        avatar: '/avatar/00.png',
       } as Required<User>;
       this.httpService.signup(newUser);
     }
