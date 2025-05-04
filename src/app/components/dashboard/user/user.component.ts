@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, OnInit } from '@angular/core';
+import { Component, computed, ElementRef, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserNavComponent } from '../user-nav/user-nav.component';
 import { AppStateService } from '../../../services/AppState.service';
@@ -14,11 +14,11 @@ export class UserComponent implements OnInit {
   route = inject(ActivatedRoute);
   elementRef = inject(ElementRef);
   appState = inject(AppStateService);
-
+  user = computed(this.appState.user);
   ngOnInit(): void {
     this.elementRef.nativeElement.querySelector(
-      '.chats-container'
-    ).style.backgroundImage = `url(${this.appState.userBg()})`;
+      '.user-container'
+    ).style.backgroundImage = `url(${this.appState.settings().userBg})`;
   }
 
   openChat(id: string) {

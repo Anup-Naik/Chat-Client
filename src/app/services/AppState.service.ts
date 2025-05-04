@@ -1,4 +1,6 @@
-import { Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal, WritableSignal } from '@angular/core';
+import { SocketService } from './socket.service';
+import { Settings, User } from '../interfaces/user';
 
 const randImageNo = () => {
   const imgNo = 18;
@@ -13,11 +15,19 @@ const randImageNo = () => {
   providedIn: 'root',
 })
 export class AppStateService {
-  isLoggedin = signal(true);
-  chatBg = signal('/chatBg/01.jpg');
-  userBg = signal('/chatBg/06.jpg');
+  settings: WritableSignal<Settings> = signal({
+    chatBg: '/chatBg/01.jpg',
+    userBg: '/chatBg/06.jpg',
+  });
+  user = signal<User | null>(null);
+  socketService = inject(SocketService);
+
   constructor() {}
 
+  setUser(userData: User) {
+    this.user.set(userData);
+  }
+  
   randImage() {
     const rand = randImageNo();
     return `url('/chatBg/${rand}.jpg')`;

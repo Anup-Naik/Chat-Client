@@ -1,8 +1,8 @@
-import { AsyncPipe, DatePipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { Component, ElementRef, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppStateService } from '../../../services/AppState.service';
-import { map, switchMap } from 'rxjs';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-chat',
@@ -21,7 +21,7 @@ export class ChatComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.pipe(
       map((params) => {
-        this.userid = params.get('id') ?? 'NoID';
+        this.userid = params.get('id') ?? '';
         console.log(this.userid);
       })
     ).subscribe();
@@ -29,8 +29,9 @@ export class ChatComponent implements OnInit {
       this.elementRef.nativeElement.querySelector('.chat-actions');
     this.elementRef.nativeElement.querySelector(
       '.chat'
-    ).style.backgroundImage = `url(${this.appState.chatBg()})`;
+    ).style.backgroundImage = `url(${this.appState.settings().chatBg})`;
   }
+
   overallViewControl(e: MouseEvent) {
     if (!(e.target instanceof SVGElement)) {
       this.optionsEl.classList.remove('active');
