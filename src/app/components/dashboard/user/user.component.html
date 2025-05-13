@@ -1,6 +1,8 @@
 <section class="user">
-  <app-user-nav></app-user-nav>
-  <div class="user-container">
+  <app-user-nav (showSettings)="toggleSettings()"></app-user-nav>
+  <div class="user-container" [style]="'background-image:url('+ appState.settings().userBg   +');'">
+    <app-settings [showSettings]="showSettings()" (closeSettings)="toggleSettings()"></app-settings>
+
     <header class="user-info">
       <span class="avatar"
         ><img [src]="user()?.avatar" [alt]="user()?.username"
@@ -9,7 +11,7 @@
         {{ user()?.username?.toUpperCase() }}
       </h2>
     </header>
-
+     
     <main class="chats-container">
       <article class="chat-overview" (click)="openChat('anupnaik12Id')">
         <!-- <a class="chat-link" [routerLink]="['/chat','lolol']"></a> -->

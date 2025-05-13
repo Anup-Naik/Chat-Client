@@ -7,6 +7,7 @@
   display: flex;
 
   & .user-container {
+    position: relative;
     height: inherit;
     display: flex;
     flex-direction: column;

@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, signal } from '@angular/core';
+import { Component, ElementRef, inject, output, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -13,6 +13,7 @@ export class UserNavComponent {
     search: new FormControl(''),
   });
   enableSearch = signal(false);
+  showSettings = output();
 
   onSubmit() {
     console.log(this.searchForm.value.search);
@@ -22,5 +23,9 @@ export class UserNavComponent {
     this.enableSearch.update((prev) => !prev);
     if (this.enableSearch())
       this.elementRef.nativeElement.querySelector('input').focus();
+  }
+
+  emitSettingEvent(){
+    this.showSettings.emit();
   }
 }

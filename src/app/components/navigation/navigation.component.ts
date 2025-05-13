@@ -11,6 +11,7 @@ import { HttpService } from '../../services/http.service';
 })
 export class NavigationComponent {
   router = inject(Router);
+  appState = inject(AppStateService);
   httpService = inject(HttpService);
   logout() {
     this.httpService.logout();

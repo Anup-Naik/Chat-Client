@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { computed, inject, Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { User } from '../interfaces/user';
 import { AppStateService } from './AppState.service';
 import { MyServerResponse } from '../interfaces/message';
@@ -14,10 +14,7 @@ export class HttpService {
   private appState = inject(AppStateService);
   private router = inject(Router);
   private http = inject(HttpClient);
-  jwt = signal('');
-  isLoggedin = computed(() => {
-    return this.jwt().length > 1;
-  });
+ 
   private resObserver: Observer<MyServerResponse> = {
     next: (res) => {
       if (res.status === 'error') return;
@@ -34,13 +31,11 @@ export class HttpService {
     complete: () => {},
   };
 
-  setJwt(jwt = '') {
-    this.jwt.set(jwt);
-  }
+  
 
   setUserData(data: User, jwt?: string) {
     if (jwt) {
-      this.setJwt(jwt);
+      this.appState.setJwt(jwt);
     }
     this.appState.setUser(data);
   }
@@ -62,6 +57,6 @@ export class HttpService {
   }
 
   logout() {
-    this.setJwt();
+    this.appState.setJwt();
   }
 }
